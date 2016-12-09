@@ -1,0 +1,7 @@
+{
+  "name": "hdl-app",
+  "short_name": "hdl-app",
+  "description": "Huize deLier",
+  "start_url": "/",
+  "display": "standalone"
+}
