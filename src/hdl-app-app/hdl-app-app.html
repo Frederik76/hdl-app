@@ -7,14 +7,15 @@
     <link rel="import" href="../../bower_components/paper-card/paper-card.html">
       <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
   <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
-
-<link rel="stylesheet" href="../../bower_components/paper-styles/demo.css">
-
+  <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+ <link href='https://fonts.googleapis.com/css?family=Poppins:300,500' rel='stylesheet'type='text/css'>
 <dom-module id="hdl-app-app">
   <template>
     <style include="iron-flex iron-flex-alignment iron-positioning iron-flex-factors">
       :host {
         display: block;
+        font-family:Poppins;
+        background-color: #e5f8ff;
       }
       paper-scroll-header-panel {
       position: absolute;
@@ -29,10 +30,31 @@
         background-position: left center;
       };
       /* background for toolbar when it is condensed */
-      --paper-scroll-header-panel-condensed-header: {
-        background-color: var(--paper-deep-purple-500);
-      };
+     
+      --paper-font-common-base: {
+        font-family: 'Poppins';
+      }
     }
+    paper-tabs {
+       font-family: 'Poppins';
+      --paper-tabs-selection-bar-color:  #0489B1;
+      @apply (--paper-font-common-base);
+    }
+    paper-tab {
+       font-family: 'Poppins';
+    }
+
+    .iron-selected {
+      padding: 48px;
+    }
+
+    h3 {
+      font-family: 'Poppins';
+      font-weight: 500;
+      line-height: 1.3em;
+      color: #0489B1;
+    }
+
     paper-icon-button {
       --paper-icon-button-ink-color: white;
     }
@@ -46,22 +68,27 @@
       transform-origin: left center;
     }
     .content {
-      padding-left: 80px;
-      padding-right: 80px;
-      padding-top: 24px;
-      padding-bottom: 24px;
+      padding-left: 120px;
+      padding-right: 120px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      background-color: #e5f8ff;
+    }
+    paper-card {
+      margin-top: 24px;
+      margin-bottom: 8px;
+      font-family: Poppins;
     }
     .spacer {
       @apply(--layout-flex);
     }
     .img-responsive {
-      --iron-image-max-width: 100%;
-      --iron-image-max-heigth: 100%;
+      --iron-image-width: 100%;
+      --iron-image-heigth: 100%;
     }
-    img {
-      width:100%;
-      height: 100%;
-    }
+  .tabs-card{
+    width: 100%;
+  }  
 
   .rate-image {
     min-width: 160px;
@@ -69,7 +96,6 @@
     min-height: 100px;
     max-height: 100%;
     padding: 8px;
-
   }
 
   .rate-header { 
@@ -102,13 +128,48 @@
           <iron-image class="img-responsive" src="../../assets/images/gallerywijkdebrabander130150017.jpg"></iron-image>
         </div>
         <div class="rate-content flex">
-          <div class="rate-header">Huize de Lier</div>
-          <div>Wijk de Brabander 139 - Cadzand-Bad
-aantal personen: 6 | aantal slaapkamers: 3
-Vanuit dit relaxte vakantiehuis loop je zo het duin over het strand op, om te zonnen, zwemmen, wandelen of een drankje te drinken op het terras.</div>
+          <div class="rate-header flex">Welkom</div>
+          <div class="rate-name flex">Wijk de Brabander 139 - Cadzand-Bad</div>
+          <div>
+          aantal personen: 6 | aantal slaapkamers: 3</div>
+          <div>
+          Vanuit dit relaxte vakantiehuis loop je zo het duin over het strand op, om te zonnen, zwemmen, wandelen of een drankje te drinken op het terras.
+          </div>
         </div>
       </paper-card>
+      <paper-card class="layout center tabs-card">
+        <paper-tabs noink fit-container scrollable selected="{{selected}}">
+          <paper-tab >Het Huis</paper-tab>
+          <paper-tab >Ligging</paper-tab>
+          <paper-tab >Beschikbaarheid</paper-tab>
+          <paper-tab >Prijzen</paper-tab>
+          <paper-tab >Over ons</paper-tab>
+        </paper-tabs> 
+        <iron-pages selected="{{selected}}">
+          <div class="layout horizontal center">
+            <div class="description flex">
+              <h4>Het huis</h4>
+              <p>Huize de Lier is een appartement op de begane grond en is circa 65m2. Er is een ruime woon-/ eetkamer met open keuken waarin je alles vindt wat je nodig hebt om heerlijk te koken. De woonkamer is lekker licht door de kamerbrede glazen schuifpui die uitkomt op het terras. Vanaf het terras kijk je uit op het omheinde zwembad. Het huis heeft drie slaapkamers voor in totaal 6 personen. In de grote slaapkamer staat een ruim 2-persoons bed, de twee andere slaapkamers zijn voorzien van stapelbedden. Facebooken en Netflixen zijn geen probleem, ons supersnelle WIFI kan het allemaal aan. #huizedelier</p>					
+              <p>Huize de Lier staat op een privéterrein met een zwembad dat gedeeld wordt met de andere huisjes. Op twee in- en uitgangen na is het terrein omheind.</p>
+              <h5>Indeling</h5>
+              <p><b>Woon-/ eetkamer:</b> Eettafel met 6 stoelen, comfortabele zithoek met televisie, boeken en Donald Ducks. Spelletjesliefhebbers – eat your heart out – er ligt van alles, van Rummikub tot Kubb. :-)</p>
+              <p><b>Keuken:</b> Alles is mogelijk. Of je nu alleen tosti’s kan bakken of oesters wil eten. De keuken heeft moderne inbouwapparatuur (vaatwasser, combi-oven en koelkast met vriesvak), 4-pits gasfornuis en al het servies dat je nodig hebt.</p>
+              <p><b>Slaapkamers:</b> het 2-persoonsbed heeft 2 matrassen van 80 x 210. De stapelbedden zijn 90 x 200. Er zijn dekbedden en kussens, maar hoezen en lakens moet je zelf meenemen. Er is genoeg kastruimte om je kleding op te hangen maar als je uit je tas wil leven – be our guest.</p>
+              <p><b>Badkamer:</b> de douche is lekker warm met een goeie straal, er is een wasbak met spiegel en natuurlijk het toilet. Neem wel zelf je handdoeken mee!</p>
+              <p><b>Terras:</b>  Ligt op het westen. Zonovergoten, maar als dat teveel voor je is dan klap je de grote parasol uit of duik je het zwembad in (grapje, duiken is niet toegestaan en dus alleen voor pro’s). Er staat een tafel met 4 stoelen en binnen liggen kussentjes.</p>
+              <p><b>Zwembad:</b> eerst even het strandzand afspoelen onder de buitendouche en je kan het zwembad in. Vergeet de sleutel niet! Ook ligt er een thermometer voor als je het niet aandurft onder de 20 graden. Misschien is het luchtbed dan iets voor je? Die ligt onder een van de bedden. Succes! Het zwembad is geopend van juni tot en met september.</p>
+              <p><b>Schuur:</b> We hebben 2 fietsen. Er staat een fietspomp en alles wat je nodig hebt om een fantastisch zandkasteel te bouwen.</p>
+            </div>
+            <div class="photos">
 
+            </div>
+          </div>
+          <div>Page 2</div>
+          <div>Page 3</div>
+          <div>Page 4</div>
+          <div>Page 5</div>
+        </iron-pages>
+    </paper-card> 
     </div>
 
   </paper-scroll-header-panel>
