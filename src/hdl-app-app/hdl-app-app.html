@@ -1,14 +1,18 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+  <link rel="import" href="../../bower_components/polymer/polymer.html">
+  <link rel="import" href="../../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
   <link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
   <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
   <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="../../bower_components/paper-styles/color.html">
-    <link rel="import" href="../../bower_components/paper-card/paper-card.html">
-      <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+  <link rel="import" href="../../bower_components/paper-card/paper-card.html">
+  <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
   <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
   <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+  <link rel="import" href="../../bower_components/polymer-simple-slider/simple-slider.html">
+  <link rel="import" href="../../bower_components/google-map/google-map.html">
+
  <link href='https://fonts.googleapis.com/css?family=Poppins:300,500' rel='stylesheet'type='text/css'>
+
 <dom-module id="hdl-app-app">
   <template>
     <style include="iron-flex iron-flex-alignment iron-positioning iron-flex-factors">
@@ -36,22 +40,30 @@
       }
     }
     paper-tabs {
-       font-family: 'Poppins';
       --paper-tabs-selection-bar-color:  #0489B1;
-      @apply (--paper-font-common-base);
-    }
-    paper-tab {
-       font-family: 'Poppins';
-    }
-
-    .iron-selected {
-      padding: 48px;
+      --paper-font-common-base: {
+        font-family: 'Poppins';
+      };
     }
 
-    h3 {
+    .description {
+      padding-left: 48px;
+      padding-right: 8px;
+      padding-top: 16px;
+      padding-bottom: 16px
+      font-family: 'Poppins';
+      font-weight: 300;
+      font-size: 14px;
+    }
+    .widget {
+      padding:16px;
+    }
+
+
+    paper-tabs h3 {
       font-family: 'Poppins';
       font-weight: 500;
-      line-height: 1.3em;
+      font-size: 16px;
       color: #0489B1;
     }
 
@@ -74,15 +86,22 @@
       padding-bottom: 8px;
       background-color: #e5f8ff;
     }
+    simple-slider {
+      margin-top: 16px;
+    }
+
     paper-card {
       margin-top: 24px;
       margin-bottom: 8px;
       font-family: Poppins;
+      font-size: 14px;
+      font-weight:300;
     }
     .spacer {
       @apply(--layout-flex);
     }
     .img-responsive {
+      max-width: 100%;
       --iron-image-width: 100%;
       --iron-image-heigth: 100%;
     }
@@ -139,14 +158,14 @@
       </paper-card>
       <paper-card class="layout center tabs-card">
         <paper-tabs noink fit-container scrollable selected="{{selected}}">
-          <paper-tab >Het Huis</paper-tab>
-          <paper-tab >Ligging</paper-tab>
-          <paper-tab >Beschikbaarheid</paper-tab>
-          <paper-tab >Prijzen</paper-tab>
-          <paper-tab >Over ons</paper-tab>
+          <paper-tab><h3>Het Huis</h3></paper-tab>
+          <paper-tab><h3>Ligging</h3></paper-tab>
+          <paper-tab><h3>Beschikbaarheid</h3></paper-tab>
+          <paper-tab><h3>Prijzen</h3></paper-tab>
+          <paper-tab><h3>Over ons</h3></paper-tab>
         </paper-tabs> 
         <iron-pages selected="{{selected}}">
-          <div class="layout horizontal center">
+          <div class="layout horizontal">
             <div class="description flex">
               <h4>Het huis</h4>
               <p>Huize de Lier is een appartement op de begane grond en is circa 65m2. Er is een ruime woon-/ eetkamer met open keuken waarin je alles vindt wat je nodig hebt om heerlijk te koken. De woonkamer is lekker licht door de kamerbrede glazen schuifpui die uitkomt op het terras. Vanaf het terras kijk je uit op het omheinde zwembad. Het huis heeft drie slaapkamers voor in totaal 6 personen. In de grote slaapkamer staat een ruim 2-persoons bed, de twee andere slaapkamers zijn voorzien van stapelbedden. Facebooken en Netflixen zijn geen probleem, ons supersnelle WIFI kan het allemaal aan. #huizedelier</p>					
@@ -160,13 +179,177 @@
               <p><b>Zwembad:</b> eerst even het strandzand afspoelen onder de buitendouche en je kan het zwembad in. Vergeet de sleutel niet! Ook ligt er een thermometer voor als je het niet aandurft onder de 20 graden. Misschien is het luchtbed dan iets voor je? Die ligt onder een van de bedden. Succes! Het zwembad is geopend van juni tot en met september.</p>
               <p><b>Schuur:</b> We hebben 2 fietsen. Er staat een fietspomp en alles wat je nodig hebt om een fantastisch zandkasteel te bouwen.</p>
             </div>
-            <div class="photos">
-
+            <div class="widget flex">
+              <simple-slider style="width:300px; height:200px">
+                <img width="300px" heigth="200px" src="../../assets/images/kasten.JPG"/>
+                <img width="300px" height="200px" src="../../assets/images/raam.jpg"/>
+                <img width="300px" height="200px" src="../../assets/images/spiegel.jpg"/>
+              </simple-slider>
             </div>
           </div>
-          <div>Page 2</div>
-          <div>Page 3</div>
-          <div>Page 4</div>
+          <div class="layout horizontal">
+            <div class="description flex">
+              <h4>Ligging</h4>
+              <p>Cadzand ligt in Zeeuws-Vlaanderen met alle Bourgondische voordelen: Belgisch bier met garnalenkroketjes bij Moio op het strand, fine dining bij Pure C en binnenkort een luxe Spa in het Strandhotel. Het strand bij Cazand-Bad is het schoonste strand van Nederland.</p>
+              <p>Vanaf Huize de Lier loop je in een paar minuten (350m) naar het strand. Je kunt hier naast zonnen en zwemmen ook blokarten, suppen, windsurfen, volleyballen, wandelen en onderweg haaientanden zoeken. Over de duinen kun je lekker fietsen of hardlopen.</p>
+              <p>Bij Cadzand liggen twee natuurgebieden: Het Zwin en Zwarte Polder. Je kunt er zelf wandelen, maar er worden ook rondleidingen met gids georganiseerd.</p>
+              <p>Boodschappen kun je doen in het dorpje (kleine supermarkt, bakker, markt op maandag) en in Oostburg (je rijdt er langs). Als je serieuzer wil shoppen, ben je zo in Sluis. Knokke, Brugge en Gent zijn ook goed bereikbaar.</p>
+            </div>
+            <div class="widget flex">
+              <google-map fit-to-marker api-key="AIzaSyD3E1D9b-Z7ekrT3tbhl_dy8DCXuIuDDRc">
+                <google-map-marker latitude="3.406865" longitude="51.381390" draggable="true"></google-map-marker>
+              </google-map>
+            </div>
+          </div>
+          <div class="layout horizontal">
+            <div class="description flex">
+              <h4>Beschikbaarheid</h4>
+              <p>In de agenda kun je al zien of ons huis beschikbaar is.
+              </p>
+              <p>Zo ja, stuur ons snel een mailtje: <a href="mailto: huizedelier@gmail.com"> huizedelier@gmail.com</a></p>
+            </div>
+            <div class="widget flex">
+
+              <div class="google-calendar" style="margin-bottom: 10px">
+                <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=300&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=huizedelier%40gmail.com&amp;color=%23A32929&amp;ctz=Europe%2FAmsterdam" style="border-width:0" width="400" height="300" frameborder="0" scrolling="no"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="layout horizontal">
+            <div class="description flex">
+              <h4>Tarieven</h4>
+              <p>De prijzen hieronder zijn exclusief schoonmaakkosten (40 EUR). Een weekend loopt van vrijdag tot en met maandag.</p>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                  <tr class="info">
+                    <th>Periode van</th>
+                    <th>Periode tot</th>
+                    <th>Tarief week</th>
+                    <th>Tarief weekend</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>24 december</td>
+                    <td>7 januari</td>
+                    <td>€ 360,-</td>
+                    <td>€ 210,-</td>
+                  </tr>
+                  <tr>
+                    <td>7 januari</td>
+                    <td>18 februari</td>
+                    <td>€ 250,-</td>
+                    <td>€ 150,-</td>
+                  </tr>
+                  <tr>
+                    <td>18 februari</td>
+                    <td>4 maart</td>
+                    <td>€ 360,-</td>
+                    <td>€ 210,-</td>
+                  </tr>
+                  <tr>
+                    <td>4 maart</td>
+                    <td>19 maart</td>
+                    <td>€ 250,-</td>
+                    <td>€ 150,-</td>
+                  </tr>
+                  <tr>
+                    <td>19 maart</td>
+                    <td>2 april</td>
+                    <td>€ 360,-</td>
+                    <td>€ 210,-</td>
+                  </tr>
+                  <tr>
+                    <td>2 april</td>
+                    <td>15 april</td>
+                    <td>€ 250,-</td>
+                    <td>€ 150,-</td>
+                  </tr>
+                  <tr>
+                    <td>15 april</td>
+                    <td>29 april</td>
+                    <td>€ 360,-</td>
+                    <td>€ 210,-</td>
+                  </tr>
+                  <tr>
+                    <td>29 april</td>
+                    <td>20 mei</td>
+                    <td>€ 290,-</td>
+                    <td>€ 180,-</td>
+                  </tr>
+                  <tr>
+                    <td>20 mei</td>
+                    <td>27 mei</td>
+                    <td>€ 360,-</td>
+                    <td>€ 210,-</td>
+                  </tr>
+                  <tr>
+                    <td>27 mei</td>
+                    <td>3 juni</td>
+                    <td>€ 290,-</td>
+                    <td>€ 180,-</td>
+                  </tr>
+                  <tr>
+                    <td>3 juni</td>
+                    <td>10 juni</td>
+                    <td>€ 360,-</td>
+                    <td>€ 210,-</td>
+                  </tr>
+                  <tr>
+                    <td>10 juni</td>
+                    <td>1 juli</td>
+                    <td>€ 290,-</td>
+                    <td>€ 180,-</td>
+                  </tr>
+                  <tr>
+                    <td>1 juli</td>
+                    <td>8 juli</td>
+                    <td>€ 400,-</td>
+                    <td>NVT</td>
+                  </tr>
+                  <tr>
+                    <td>8 juli</td>
+                    <td>2 september</td>
+                    <td>€ 580,-</td>
+                    <td>NVT</td>
+                  </tr>
+                  <tr>
+                    <td>2 september</td>
+                    <td>9 september</td>
+                    <td>€ 400,-</td>
+                    <td>NVT</td>
+                  </tr>
+                  <tr>
+                    <td>9 september</td>
+                    <td>14 oktober</td>
+                    <td>€ 290,-</td>
+                    <td>€ 180,-</td>
+                  </tr>
+                  <tr>
+                    <td>14 oktober</td>
+                    <td>28 oktober</td>
+                    <td>€ 360,-</td>
+                    <td>€ 210,-</td>
+                  </tr>
+                  <tr>
+                    <td>28 oktober</td>
+                    <td>23 december</td>
+                    <td>€ 250,-</td>
+                    <td>€ 150,-</td>
+                  </tr>
+                  <tr>
+                    <td>23 december</td>
+                    <td>6 januari</td>
+                    <td>€ 360,-</td>
+                    <td>€ 210,-</td>
+                  </tr>
+                  </tbody>
+                </table>
+
+              </div>
+
+          </div>
           <div>Page 5</div>
         </iron-pages>
     </paper-card> 
@@ -201,3 +384,4 @@
     });
   </script>
 </dom-module>
+
