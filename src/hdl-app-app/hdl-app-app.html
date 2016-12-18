@@ -10,6 +10,8 @@
   <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
   <link rel="import" href="../../bower_components/polymer-simple-slider/simple-slider.html">
   <link rel="import" href="../../bower_components/google-map/google-map.html">
+  <link rel="import" href="../../bower_components/iron-data-table/iron-data-table.html">
+  <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
  <link href='https://fonts.googleapis.com/css?family=Poppins:300,500' rel='stylesheet'type='text/css'>
 
@@ -219,138 +221,36 @@
             <div class="description flex">
               <h4>Tarieven</h4>
               <p>De prijzen hieronder zijn exclusief schoonmaakkosten (40 EUR). Een weekend loopt van vrijdag tot en met maandag.</p>
-              <div class="table-responsive">
-                <table class="table">
-                  <thead>
-                  <tr class="info">
-                    <th>Periode van</th>
-                    <th>Periode tot</th>
-                    <th>Tarief week</th>
-                    <th>Tarief weekend</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>24 december</td>
-                    <td>7 januari</td>
-                    <td>€ 360,-</td>
-                    <td>€ 210,-</td>
-                  </tr>
-                  <tr>
-                    <td>7 januari</td>
-                    <td>18 februari</td>
-                    <td>€ 250,-</td>
-                    <td>€ 150,-</td>
-                  </tr>
-                  <tr>
-                    <td>18 februari</td>
-                    <td>4 maart</td>
-                    <td>€ 360,-</td>
-                    <td>€ 210,-</td>
-                  </tr>
-                  <tr>
-                    <td>4 maart</td>
-                    <td>19 maart</td>
-                    <td>€ 250,-</td>
-                    <td>€ 150,-</td>
-                  </tr>
-                  <tr>
-                    <td>19 maart</td>
-                    <td>2 april</td>
-                    <td>€ 360,-</td>
-                    <td>€ 210,-</td>
-                  </tr>
-                  <tr>
-                    <td>2 april</td>
-                    <td>15 april</td>
-                    <td>€ 250,-</td>
-                    <td>€ 150,-</td>
-                  </tr>
-                  <tr>
-                    <td>15 april</td>
-                    <td>29 april</td>
-                    <td>€ 360,-</td>
-                    <td>€ 210,-</td>
-                  </tr>
-                  <tr>
-                    <td>29 april</td>
-                    <td>20 mei</td>
-                    <td>€ 290,-</td>
-                    <td>€ 180,-</td>
-                  </tr>
-                  <tr>
-                    <td>20 mei</td>
-                    <td>27 mei</td>
-                    <td>€ 360,-</td>
-                    <td>€ 210,-</td>
-                  </tr>
-                  <tr>
-                    <td>27 mei</td>
-                    <td>3 juni</td>
-                    <td>€ 290,-</td>
-                    <td>€ 180,-</td>
-                  </tr>
-                  <tr>
-                    <td>3 juni</td>
-                    <td>10 juni</td>
-                    <td>€ 360,-</td>
-                    <td>€ 210,-</td>
-                  </tr>
-                  <tr>
-                    <td>10 juni</td>
-                    <td>1 juli</td>
-                    <td>€ 290,-</td>
-                    <td>€ 180,-</td>
-                  </tr>
-                  <tr>
-                    <td>1 juli</td>
-                    <td>8 juli</td>
-                    <td>€ 400,-</td>
-                    <td>NVT</td>
-                  </tr>
-                  <tr>
-                    <td>8 juli</td>
-                    <td>2 september</td>
-                    <td>€ 580,-</td>
-                    <td>NVT</td>
-                  </tr>
-                  <tr>
-                    <td>2 september</td>
-                    <td>9 september</td>
-                    <td>€ 400,-</td>
-                    <td>NVT</td>
-                  </tr>
-                  <tr>
-                    <td>9 september</td>
-                    <td>14 oktober</td>
-                    <td>€ 290,-</td>
-                    <td>€ 180,-</td>
-                  </tr>
-                  <tr>
-                    <td>14 oktober</td>
-                    <td>28 oktober</td>
-                    <td>€ 360,-</td>
-                    <td>€ 210,-</td>
-                  </tr>
-                  <tr>
-                    <td>28 oktober</td>
-                    <td>23 december</td>
-                    <td>€ 250,-</td>
-                    <td>€ 150,-</td>
-                  </tr>
-                  <tr>
-                    <td>23 december</td>
-                    <td>6 januari</td>
-                    <td>€ 360,-</td>
-                    <td>€ 210,-</td>
-                  </tr>
-                  </tbody>
-                </table>
-
-              </div>
-
+              <template is="dom-bind">
+                <iron-ajax url="../../assets/json/data.json" last-response="{{data}}" auto></iron-ajax>
+                <iron-data-table items="[[data]]">
+                  <data-table-column name="Periode van">
+                    <template>[[item.periode.van]]</template>
+                  </data-table-column>
+                  <data-table-column name="Periode tot">
+                    <template>[[item.periode.tot]]</template>
+                  </data-table-column>
+                  <data-table-column name="Tarief week">
+                    <template>[[item.periode.week]]</template>
+                  </data-table-column>
+                  <data-table-column name="Tarief weekend">
+                    <template>[[item.periode.weekend]]</template>
+                  </data-table-column>
+                </iron-data-table>
+              </template>
+            </div>
           </div>
-          <div>Page 5</div>
+          <div class="layout horizontal">
+            <div class="description flex">
+              <h4>Over ons</h4>
+              <p>Sinds 2016 zijn wij – Anne, Roelien, Frederik en Gert-Jan – samen eigenaar van Huize de Lier. Anne en Roelien komen al 20 jaar in Cadzand-Bad. Opa Lier ging als kind al op vakantie naar het duinhuisje Huize de Lier. Dat duinhuisje staat er niet meer, maar lag ter hoogte van ons huisje dat nu dezelfde naam draagt. De jongste fan is Marnix die al met 3 maanden een weekendje geboekt heeft. ;)</p>
+            </div>
+            <div class="widget flex">
+              <iron-image class="img-responsive" src="../../assets/images/drone_cadzand.jpeg"></iron-image>
+              <iron-image class="img-responsive" src="../../assets/images/Duinhuis De Lier.jpg"></iron-image>
+            </div>
+          </div>
+
         </iron-pages>
     </paper-card> 
     </div>

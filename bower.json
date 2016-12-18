@@ -15,7 +15,8 @@
     "iron-pages": "PolymerElements/iron-pages#^1.0.8",
     "polymer-simple-slider": "^1.0.1",
     "google-map": "GoogleWebComponents/google-map#^1.1.14",
-    "google-calendar": "GoogleWebComponents/google-calendar#^1.0.3"
+    "google-calendar": "GoogleWebComponents/google-calendar#^1.0.3",
+    "iron-data-table": "^1.0.6"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",

@@ -1,0 +1,173 @@
+[
+  {
+    "periode":
+    {
+      "van": "24 december",
+      "tot": "7 januari",
+      "week": "€ 360,-",
+      "weekend": "€ 210,-"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "7 januari",
+      "tot": "18 februari",
+      "week": "€ 250,-",
+      "weekend": "€ 150,-"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "18 februari",
+      "tot": "4 maart",
+      "week": "€ 360,-",
+      "weekend": "€ 210,-"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "4 maart",
+      "tot": "19 maart",
+      "week": "€ 250,-",
+      "weekend": "€ 150,-"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "19 maart",
+      "tot": "2 april",
+      "week": "€ 360,-",
+      "weekend": "€ 210,-"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "2 april",
+      "tot": "15 april",
+      "week": "€ 250,-",
+      "weekend": "€ 150,-"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "15 april",
+      "tot": "29 april",
+      "week": "€ 360,-",
+      "weekend": "€ 210,-"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "29 april",
+      "tot": "20 mei",
+      "week": "€ 290,-",
+      "weekend": "€ 180,-"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "20 mei",
+      "tot": "27 mei",
+      "week": "€ 360,-",
+      "weekend": "€ 210,-"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "27 mei",
+      "tot": "3 juni",
+      "week": "€ 290,-",
+      "weekend": "€ 180,-"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "3 juni",
+      "tot": "10 juni",
+      "week": "€ 360,-",
+      "weekend": "€ 210,-"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "10 juni",
+      "tot": "1 juli",
+      "week": "€ 290,-",
+      "weekend": "€ 180,-"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "1 juli",
+      "tot": "8 juli",
+      "week": "€ 400,-",
+      "weekend": "NVT"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "8 juli",
+      "tot": "2 september",
+      "week": "€ 580,-",
+      "weekend": "NA"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "2 september",
+      "tot": "9 september",
+      "week": "€ 400,-",
+      "weekend": "NVT"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "9 september",
+      "tot": "14 oktober",
+      "week": "€ 290,-",
+      "weekend": "€ 180,-"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "14 oktober",
+      "tot": "28 oktober",
+      "week": "€ 360,-",
+      "weekend": "€ 210,-"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "28 oktober",
+      "tot": "23 december",
+      "week": "€ 250,-",
+      "weekend": "€ 150,-"
+    }
+  },
+  {
+    "periode":
+    {
+      "van": "23 december",
+      "tot": "6 januari",
+      "week": "€ 360,-",
+      "weekend": "€ 210,-"
+    }
+  }
+]
