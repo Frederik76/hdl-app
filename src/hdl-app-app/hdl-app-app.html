@@ -10,6 +10,7 @@
   <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
   <link rel="import" href="../../bower_components/polymer-simple-slider/simple-slider.html">
   <link rel="import" href="../../bower_components/google-map/google-map.html">
+  <link rel="import" href="../../bower_components/google-map/google-map-marker.html">
   <link rel="import" href="../../bower_components/iron-data-table/iron-data-table.html">
   <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 
@@ -116,18 +117,45 @@
     }
   .tabs-card{
     width: 100%;
-  }  
+  }
+
+  google-map {
+    max-height: 500px;
+  }
 
   .rate-image {
-    min-width: 300px;
-    max-width: 30%;
-    min-height: 100px;
     max-height: 100%;
     padding: 8px;
   }
 
+    @media (min-width: 600px) {
+      .rate-image {
+        max-width: 150px;
+
+      }
+    }
+
+
+      @media (min-width: 320px) {
+    .rate-image {
+      width: 100%;
+      min-width: 250px;
+    }
+  }
+
   .rate-content {
     padding: 8px;
+  }
+      @media(min-width: 600px) {
+        .rate-content {
+          max-width: 35%;
+        }
+      }
+
+      @media(min-width: 320px) {
+    .rate-content {
+      width: 100%;
+    }
   }
   .rate-header { 
     @apply(--paper-font-headline); 
@@ -151,7 +179,7 @@
 
     <div class="content">
 
-      <paper-card class="layout horizontal center">
+      <paper-card class="layout horizontal wrap">
         <div class="rate-image flex">
           <iron-image class="img-responsive" src="../../assets/images/gallerywijkdebrabander130150017.jpg"></iron-image>
         </div>
@@ -205,8 +233,8 @@
               <p>Boodschappen kun je doen in het dorpje (kleine supermarkt, bakker, markt op maandag) en in Oostburg (je rijdt er langs). Als je serieuzer wil shoppen, ben je zo in Sluis. Knokke, Brugge en Gent zijn ook goed bereikbaar.</p>
             </div>
             <div class="widget flex">
-              <google-map fit-to-marker api-key="AIzaSyD3E1D9b-Z7ekrT3tbhl_dy8DCXuIuDDRc">
-                <google-map-marker latitude="3.406865" longitude="51.381390" draggable="true"></google-map-marker>
+              <google-map zoom="15" api-key="AIzaSyAtZ89divENyl3-SLYIXeYb2ywj9OnejjY" latitude="51.381584" longitude="3.406919" draggable="true">
+                <google-map-marker latitude="51.381416" longitude="3.406871" draggable="true" title="Huize de Lier"></google-map-marker>
               </google-map>
             </div>
           </div>
